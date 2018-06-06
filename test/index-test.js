@@ -1,14 +1,5 @@
 describe('Selectors', () => {
-  it('getIt() binds a click event to the paragraph', function() {
-    window.alert = expect.createSpy()
-
-    window.getIt();
-
-    window.$('p')[0].click()
-
-    expect(window.alert).toHaveBeenCalled();
-  });
-
+  
   it('frameIt() binds an event that frames the minion when the page loads', function() {
     window.frameIt()
 
@@ -20,18 +11,6 @@ describe('Selectors', () => {
   });
 
   describe('pressIt()', () => {
-    it('pressIt() binds an event that alerts the user when the G key was pressed down', function() {
-      window.alert = expect.createSpy()
-
-      window.pressIt();
-
-      const input = window.$('#typing');
-      const event = window.$.Event('keydown', { which: 71 })
-      input.trigger(event)
-
-      expect(window.alert).toHaveBeenCalled()
-    })
-
     it('does not alert if another key is pressed', () => {
       window.alert = expect.createSpy()
 
@@ -43,6 +22,30 @@ describe('Selectors', () => {
 
       expect(window.alert).toNotHaveBeenCalled()
     })
+    
+    it('pressIt() binds an event that alerts the user when the G key was pressed down', function() {
+      window.alert = expect.createSpy()
+
+      window.pressIt();
+
+      const input = window.$('#typing');
+      const event = window.$.Event('keydown', { which: 71 })
+      input.trigger(event)
+
+      expect(window.alert).toHaveBeenCalled()
+    })
+    
+it('getIt() binds a click event to the paragraph', function() {
+    window.alert = expect.createSpy()
+
+    window.getIt();
+
+    window.$('p')[0].click()
+
+    expect(window.alert).toHaveBeenCalled();
+  });
+
+    
   })
 
   it('submitIt() binds an event that alerts "Your form is going to be submitted now." when the form is submitted', function() {
