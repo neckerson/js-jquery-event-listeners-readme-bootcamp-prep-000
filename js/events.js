@@ -12,14 +12,14 @@ function pressIt() {
   alert('You pressed G!')
 }
 
-/* function pressIt() {
+function pressIt() {
   $('#typing').on('keydown', function(e) {
     // 'g' corresponds to 71
     if (e.which === 71) {
       alert("You pressed 'g'!")
     }
   })
-} */
+}
 
 
 function submitIt() {
@@ -34,11 +34,11 @@ $('p').on("click", getIt);
 
 $('img').on("load", frameIt);
 
-$('#typing').on('keypress', function(key) {
+/* $('#typing').on('keypress', function(key) {
   if (key.which == 71){
     pressIt();
   }
-});
+}); */
 
 $("form").on("submit", submitIt);
   
